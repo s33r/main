@@ -1,0 +1,13 @@
+{
+    "name": "@ehwillows/lib.package-json",
+    "description": "Parses and validates package.json files",
+    "author": {
+        "name": "Erin Willows",
+        "email": "erin@ehwillows.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/s33r/main.git",
+        "directory": "packages/lib/package-json"
+    }
+}
