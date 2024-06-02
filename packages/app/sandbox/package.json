@@ -1,0 +1,11 @@
+{
+    "name": "@ehwillows/app.sandbox",
+    "description": "Sandbox for testing stuff out",
+    "private": true,
+    "author": "You!",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/s33r/main.git",
+        "directory": "packages/app/sandbox"
+    }
+}

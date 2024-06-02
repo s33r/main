@@ -4,7 +4,8 @@
   "description": "Main repository",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "tsimp packages/app/sandbox/index.ts"
   },
   "repository": {
     "type": "git",
@@ -32,13 +33,13 @@
     "@stylistic/eslint-plugin": "^2.1.0",
     "@types/node": "^20.13.0",
     "eslint-plugin-align-assignments": "^1.1.2",
-    "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^7.11.0"
   },
   "dependencies": {
     "decimal.js": "^10.4.3",
     "jsonc-parser": "^3.2.1",
+    "tsimp": "^2.0.11",
     "zod": "^3.23.8"
   }
 }
