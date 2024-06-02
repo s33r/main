@@ -1,6 +1,9 @@
 import { z } from 'zod';
+import { parseNameString } from '@ehwillows/lib.package-json/structure/parseNameString';
 
 export type PersonBag = z.infer<typeof Person.schema>;
+
+
 
 /**
  * package.json person - used by author, authors and contributors fields.
@@ -21,9 +24,13 @@ export default class Person {
 
     constructor(data: PersonBag) {
         if (typeof data === 'string') { //TODO: parse name string
-            this.#name  = data;
-            this.#email = '';
-            this.#url   = '';
+            const {
+                name, email, url,
+            } = parseNameString(data);
+
+            this.#name  = name ?? '';
+            this.#email = email ?? '';
+            this.#url   = url ?? '';
         } else {
             this.#name  = data.name;
             this.#email = data.email ?? '';

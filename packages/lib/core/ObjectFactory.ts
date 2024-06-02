@@ -1,4 +1,6 @@
 import GeneralError from '@ehwillows/lib.core/GeneralError';
+import type { ResultContainer } from '@ehwillows/lib.core/ResultContainer';
+import { parseJson } from '@ehwillows/lib.core/parsers';
 import { z } from 'zod';
 
 export interface ObjectFactoryPrototype<T_Bag, T_Class> {
@@ -7,14 +9,6 @@ export interface ObjectFactoryPrototype<T_Bag, T_Class> {
     readonly schema: z.ZodSchema<T_Bag>;
     new(data: T_Bag):T_Class;
 }
-
-export type ResultContainer<T> = {
-    success: true;
-    data   : T;
-} | {
-    success: false;
-    errors : Array<GeneralError>;
-};
 
 /**
  * Creates a new object using the provided constructor, if the creation fails, a list of errors are returned.
@@ -25,14 +19,34 @@ export type ResultContainer<T> = {
 export const safeCreate = <T_Bag, T_Class> (
     data: unknown,
     Constructor: ObjectFactoryPrototype<T_Bag, T_Class>,
+    json: boolean = false,
 ): ResultContainer<T_Class> => {
     try {
-        return Constructor.safeCreate(data);
+        if(json) {
+            const parsedToJson = parseJson(data);
+
+            if(parsedToJson.success) {
+                return Constructor.safeCreate(parsedToJson.data);
+            } else {
+                return parsedToJson;
+            }
+
+        } else {
+            return Constructor.safeCreate(data);
+        }
     } catch(error) {
-        return {
-            success: false,
-            errors : [GeneralError.fromError(error)],
-        };
+        if(error instanceof Error) {
+            return {
+                success: false,
+                errors : [GeneralError.fromError(error)],
+            };
+        } else {
+            return {
+                success: false,
+                errors : [new GeneralError(`safeCreate failed: ${error}`)],
+            };
+        }
+
     }
 };
 

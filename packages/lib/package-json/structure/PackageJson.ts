@@ -1,5 +1,6 @@
 import GeneralError from '@ehwillows/lib.core/GeneralError';
-import { ObjectFactoryPrototype, ResultContainer } from '@ehwillows/lib.core/ObjectFactory';
+import { ObjectFactoryPrototype } from '@ehwillows/lib.core/ObjectFactory';
+import type { ResultContainer } from '@ehwillows/lib.core/ResultContainer';
 import FrozenMap from '@ehwillows/lib.core/data-structures/FrozenMap';
 import Bugs from '@ehwillows/lib.package-json/structure/Bugs';
 import Funding from '@ehwillows/lib.package-json/structure/Funding';

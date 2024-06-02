@@ -17,23 +17,24 @@ export default class GeneralError {
      * @param error The JSONC parse error
      * @returns A GeneralError with the data from the parse error.
      */
+    static fromJsonParseError(error: ParseError): GeneralError;
+
+    /**
+     * Transforms a JSONC parse error into a GeneralError
+     * @param error The JSONC parse error
+     * @param message String to prepend to the error's message.
+     * @returns A GeneralError with the data from the parse error.
+     */
     static fromJsonParseError(
         error: ParseError,
+        message: string = '',
     ): GeneralError  {
+        const prefix = typeof message === 'string' ? message : '';
+
         return new GeneralError({
-            message : printParseErrorCode(error.error),
+            message : `${prefix}${printParseErrorCode(error.error)}`,
             location: error.offset.toString(),
             code    : 'json-parse',
-        });
-    }
-
-    static fromZodIssue(
-        error: z.ZodIssue,
-    ): GeneralError  {
-        return new GeneralError({
-            message : error.message,
-            location: error.path.join('.'),
-            code    : error.code,
         });
     }
 
@@ -42,14 +43,56 @@ export default class GeneralError {
      * @param error The Issue to convert
      * @returns A GeneralError with the data from the zod Issue.
      */
-    static fromError(
-        error:Error,
-    ): GeneralError {
+    static fromZodIssue(error: z.ZodIssue): GeneralError;
+
+    /**
+     * Transforms a zod Issue into a GeneralError
+     * @param error The Issue to convert
+     * @param message String to prepend to the error's message.
+     * @returns A GeneralError with the data from the zod Issue.
+     */
+    static fromZodIssue(
+        error: z.ZodIssue,
+        message: string = '',
+    ): GeneralError  {
+        const prefix = typeof message === 'string' ? message : '';
+
         return new GeneralError({
-            message : error.message,
-            code    : error.name,
-            location: error.stack?.split('\n')[0] ?? '',
+            message : `${prefix}${error.message}`,
+            location: error.path.join('.'),
+            code    : error.code,
         });
+    }
+
+    /**
+     * Transforms a native Error into a GeneralError
+     * @param error The Error to convert. If this is not an error, it is converted to a string and used as the message.
+     * @returns A GeneralError with the data from the native Error.
+     */
+    static fromError(error: unknown): GeneralError;
+
+    /**
+     * Transforms a native Error into a GeneralError
+     * @param error The Error to convert. If this is not an error, it is converted to a string and used as the message.
+     * @param message String to prepend to the error's message.
+     * @returns A GeneralError with the data from the native Error.
+     */
+    static fromError(
+        error: unknown,
+        message: string = '',
+    ): GeneralError {
+        const prefix = typeof message === 'string' ? message : '';
+
+        if(error instanceof Error) {
+            return new GeneralError({
+                message : `${prefix}${error.message}`,
+                code    : error.name,
+                location: error.stack?.split('\n')[0] ?? '',
+            });
+        } else {
+            return new GeneralError(`${prefix}${error}`);
+        }
+
     }
 
     /**
@@ -67,11 +110,7 @@ export default class GeneralError {
         };
     }
 
-    /**
-     * Transforms a native Error into a GeneralError
-     * @param error The Error to convert
-     * @returns A GeneralError with the data from the native Error.
-     */
+
     static toError(
         data: GeneralError,
     ): Error {
