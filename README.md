@@ -5,7 +5,7 @@ The main repository
 
 | Directory.      | Package Prefix.     | Purpose
 |-----------------|---------------------|-----------
-| packages/app.   | @ehwillows/app.*.   | Contains application packages
+| packages/app.   | @ehwillows/app.*    | Contains application packages
 | packages/lib    | @ehwillows/lib.*    | Contains reusable packages for apps or others.
 | packages/wright | @ehwillows/wright.* | Contains automation for building, validating and bundling packages.
 
