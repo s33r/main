@@ -1,0 +1,13 @@
+{
+    "name": "@ehwillows/lib.core",
+    "description": "Some basic data structures and utilities that are useful across time and space.",
+    "author": {
+        "name": "Erin Willows",
+        "email": "erin@ehwillows.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/s33r/main.git",
+        "directory": "packages/lib/core"
+    }
+}
