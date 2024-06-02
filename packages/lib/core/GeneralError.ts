@@ -123,12 +123,17 @@ export default class GeneralError {
      * @returns Returns data about this GeneralError in string form.
      */
     static toString(
-        data: GeneralError,
-    ) {
-        const location = data.location ? `(${data.location}) ` : '';
-        const code     = data.code ? `[${data.code}] ` : '';
+        data: GeneralError | Array<GeneralError>,
+    ): string {
+        if(Array.isArray(data)) {
+            return data.map(this.toString).join('\n');
+        } else {
+            const location = data.location ? `(${data.location}) ` : '';
+            const code     = data.code ? `[${data.code}] ` : '';
 
-        return `${code}${location}${data.#message}`;
+            return `${code}${location}${data.#message}`;
+        }
+
     }
 
     readonly #message : string;

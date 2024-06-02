@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "name": "tsx",
+            "type": "node",
+            "request": "launch",
+            "program": "${file}",
+            "runtimeExecutable": "tsx",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "skipFiles": [
+                // Node.js internal core modules
+                "<node_internals>/**"
+            ]
+        }
+    ]
+}

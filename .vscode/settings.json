@@ -11,14 +11,15 @@
     ],
 
     "cSpell.words": [
-        "ehwillows"
+        "ehwillows",
+        "tsimp"
     ],
     "javascript.preferences.importModuleSpecifier": "non-relative",
-    "javascript.preferences.importModuleSpecifierEnding": "minimal",
+    "javascript.preferences.importModuleSpecifierEnding": "js",
     "javascript.preferences.quoteStyle": "single",
 
-    "typescript.preferences.importModuleSpecifierEnding": "minimal",
-    "typescript.preferences.preferTypeOnlyAutoImports": true,
-    "typescript.preferences.quoteStyle": "single",
     "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.preferences.importModuleSpecifierEnding": "js",
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.preferences.preferTypeOnlyAutoImports": true,
 }

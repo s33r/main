@@ -1,6 +1,14 @@
 {
     "compilerOptions": {
-        "target": "es2022",
+        "noEmit": true,
+        "target": "ESNext",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "strict": true,
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
         "paths": {
             "@ehwillows/app.*": [
                 "./packages/app/*",
@@ -12,19 +20,5 @@
                 "./packages/wright/*",
             ],
         },
-        "module": "es2022",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "esModuleInterop": true,
-        // "noEmit": true,
-        "strict": true,
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true,
-    },
-    "ts-node": {
-        "compilerOptions": {
-            "module": "CommonJS",
-        },
-        "files": true,
     }
 }
