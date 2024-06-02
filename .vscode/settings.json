@@ -1,0 +1,9 @@
+{
+    "eslint.experimental.useFlatConfig": true,
+    "eslint.format.enable": true,
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+    ],
+      
+}

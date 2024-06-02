@@ -1,0 +1,35 @@
+{
+  "name": "@ehwillows/main",
+  "version": "1.0.0",
+  "description": "Main repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s33r/main.git"
+  },
+  "keywords": [
+    "Erin"
+  ],
+  "author": "Erin Willows (erin@ehwillows.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s33r/main/issues"
+  },
+  "homepage": "https://github.com/s33r/main#readme",
+  "workspaces": [
+    "packages/app/*",
+    "packages/lib/*",
+    "packages/wright/*"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "@stylistic/eslint-plugin": "^2.1.0",
+    "eslint-plugin-align-assignments": "^1.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^7.11.0"
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "paths": {
+            "@ehwillows/app.*": [
+                "./packages/app/*",
+            ],
+            "@ehwillows/lib.*": [
+                "./packages/lib/*",
+            ],
+            "@ehwillows/wright.*": [
+                "./packages/wright/*",
+            ],
+        },
+        "module": "es2022",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        // "noEmit": true,
+        "strict": true,
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS",
+        },
+        "files": true,
+    }
+}
