@@ -20,7 +20,7 @@ export default async (
                 success : false,
                 phase   : 'loaded',
                 location: unloadedPackage.location,
-                errors  : [GeneralError.fromError(error)],
+                errors  : [ GeneralError.fromError(error) ],
             };
         }
     } else {

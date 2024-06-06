@@ -19,7 +19,7 @@ const fromPossibleArray = <T>(
     if (Array.isArray(data)) {
         return data;
     } else if (data) {
-        return [data];
+        return [ data ];
     } else {
         return [];
     }

@@ -19,7 +19,7 @@ export default class PeerDependenciesMeta {
         if (data) {
             const result: Record<string, PeerDependenciesMeta> = {};
 
-            Object.entries(data).forEach(([key, value]) => {
+            Object.entries(data).forEach(([ key, value ]) => {
                 result[key] = new PeerDependenciesMeta(value);
             });
 

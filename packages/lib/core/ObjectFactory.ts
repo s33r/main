@@ -38,12 +38,12 @@ export const safeCreate = <T_Bag, T_Class> (
         if(error instanceof Error) {
             return {
                 success: false,
-                errors : [GeneralError.fromError(error)],
+                errors : [ GeneralError.fromError(error) ],
             };
         } else {
             return {
                 success: false,
-                errors : [new GeneralError(`safeCreate failed: ${error}`)],
+                errors : [ new GeneralError(`safeCreate failed: ${error}`) ],
             };
         }
 

@@ -15,7 +15,7 @@ export const executePipeline = async (
     data: string | ReadonlyArray<string>,
 ): Promise<Array<PackageFile>> => {
     if(typeof data === 'string') {
-        return await executePipeline([data]);
+        return await executePipeline([ data ]);
     } else {
         let buffer: Array<PackageFile> = data.map(toUnloadedPackage);
 

@@ -48,7 +48,7 @@ export const parseJson = (
     } catch(error) {
         return {
             success: false,
-            errors : [GeneralError.fromError(error)],
+            errors : [ GeneralError.fromError(error) ],
         };
     }
 };

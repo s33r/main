@@ -34,7 +34,7 @@ export default async (
                 phase   : 'parsed',
                 location: loadedPackage.location,
                 content : loadedPackage.content,
-                errors  : [GeneralError.fromError(error)],
+                errors  : [ GeneralError.fromError(error) ],
             };
         }
     } else {

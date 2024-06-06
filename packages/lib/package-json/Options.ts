@@ -12,7 +12,7 @@ export default class Options {
     constructor(data?: OptionsBag) {
         this.#cwd       = data?.cwd ?? '';
         this.#recursive = data?.recursive ?? false;
-        this.#include   = Object.freeze(Array.from(data?.include ?? ['package.json']));
+        this.#include   = Object.freeze(Array.from(data?.include ?? [ 'package.json' ]));
     }
 
     get cwd() { return this.#cwd; }

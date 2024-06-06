@@ -21,7 +21,7 @@ export default async (
                 location: parsedPackage.location,
                 content : parsedPackage.content,
                 data    : parsedPackage.data,
-                errors  : [GeneralError.fromError(error)],
+                errors  : [ GeneralError.fromError(error) ],
             };
         }
     } else {

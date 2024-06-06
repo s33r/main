@@ -19,7 +19,7 @@ export const createPackageOverrides = (
 ): PackageOverrides => {
     const result = new Map<string, string | PackageOverrides>();
 
-    Object.entries(data ?? {}).forEach(([key, value]) => {
+    Object.entries(data ?? {}).forEach(([ key, value ]) => {
         const newValue = typeof value === 'string' ? value : createPackageOverrides(value);
 
         result.set(key, newValue);
